@@ -11,9 +11,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { FormEvent, useState } from "react"
-
-
 import { useAppDispatch } from "@/redux/hook"
+import { addTodo } from "@/redux/features/TodoSlice"
 
 
 function AddTodoModal() {
@@ -24,7 +23,17 @@ function AddTodoModal() {
      const onSubmit = (e: FormEvent) =>{
         e.preventDefault();
 
- 
+        const randomString = Math.random().toString(36).substring(2, 7);
+        
+        const taskDetails = {
+            id: randomString,
+            title: task,
+            description: description
+        }
+
+        dispatch(addTodo(taskDetails))
+
+         
      }
 
 
