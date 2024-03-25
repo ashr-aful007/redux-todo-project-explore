@@ -1,13 +1,19 @@
 import { Button } from "../ui/button"
 
+type TtodosProps = {
+  id: string;
+  title: string,
+  description: string
+}
 
-function TodoCard() {
+
+function TodoCard({title, description, id} : TtodosProps) {
   return (
      <div className="bg-white rounded-md flex justify-between items-center p-3 border">
      <input aria-label="time" type="checkbox" name="" id=""/>
      <p className="font-semibold">Todo Title</p>
-     <p>Time</p>
-     <p>description</p>
+     <p>{title}</p>
+     <p>{description}</p>
      <div className="space-x-5">
          <Button className="bg-red-500">
            <svg
