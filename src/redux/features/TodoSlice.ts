@@ -31,8 +31,13 @@ const todoSlice = createSlice({
              state.todos = state.todos.filter(item => item.id !== action.payload)
           },
           toggleComplete : (state, action: PayloadAction<string>) =>{
-               const task = state.todos.find(item => item.id === action.payload);
-               task!.isCompleted = !task?.isCompleted;
+             const taskIndex = state.todos.findIndex(item => item.id === action.payload)
+               state!.todos[taskIndex].isCompleted =!state.todos[taskIndex].isCompleted
+
+               const completedTask = state.todos.splice(taskIndex, 1)[0];
+               if(completedTask.isCompleted){
+                    state.todos.unshift(completedTask)
+               }
           }
      }
 })
