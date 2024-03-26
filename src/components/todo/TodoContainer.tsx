@@ -24,6 +24,7 @@ function TodoContainer() {
                id={item.id}
                title={item.title}
               description={item.description}
+              isCompleted={item.isCompleted}
             />)
            }
            </div>
