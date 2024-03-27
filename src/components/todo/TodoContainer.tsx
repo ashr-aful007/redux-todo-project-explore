@@ -3,9 +3,15 @@ import TodoCard from './TodoCard'
 import AddTodoModal from './AddTodoModal'
 import TodoFilter from './TodoFilter'
 import { useAppSelector } from '@/redux/hook'
+// import { useGetTodosQuery } from '@/redux/api/api'
 
 function TodoContainer() {
+   //from local state
     const {todos} = useAppSelector((state) => state.todos)
+
+    //from server
+   //  const {data: todos,isLoading, isError} = useGetTodosQuery(undefined)
+
     
   return (
      <div>
